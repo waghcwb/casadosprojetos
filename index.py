@@ -1,1 +1,1 @@
-print 'só testando'
+print('só testando')
