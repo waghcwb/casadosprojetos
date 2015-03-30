@@ -14,12 +14,12 @@ class configHandler(tornado.web.RequestHandler):
         return 'Casa dos projetos'
 
 
-
 class MainHandler(configHandler):
     def get(self):
         self.render('index.html',
                     title=self.title()
                     )
+
 
 class AdminHandler(configHandler):
     def get(self):
@@ -52,7 +52,7 @@ def main():
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(port, ip)
-    print('Running ', 'http://'+ip+':'+str(port))
+    print('Running ', 'http://' + ip + ':' + str(port))
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
