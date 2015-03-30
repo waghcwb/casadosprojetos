@@ -17,8 +17,8 @@ class configHandler(tornado.web.RequestHandler):
 class MainHandler(configHandler):
     def get(self):
         self.render('index.html',
-                    title=self.title()
-                    )
+            title=self.title()
+        )
 
 
 class AdminHandler(configHandler):
@@ -52,7 +52,7 @@ def main():
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(port, ip)
-    print('Running ', 'http://' + ip + ':' + str(port))
+    print('Running at: ', 'http://' + ip + ':' + str(port))
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
