@@ -48,7 +48,7 @@ class Application(tornado.web.Application):
 
 def main():
     ip = '127.0.0.1'
-    port = 80
+    port = 8080
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(port, ip)
