@@ -1,4 +1,5 @@
-__author__ = 'Joelson,wagner'
+__author__ = 'joelson0007, waghcwb'
+
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -14,25 +15,24 @@ class configHandler(tornado.web.RequestHandler):
         return 'Casa dos projetos'
 
 
-
 class MainHandler(configHandler):
     def get(self):
-        self.render('index.html',
-                    title=self.title()
-                    )
+        self.render('index.html', title=self.title())
+
 
 class AdminHandler(configHandler):
     def get(self):
-        self.render('admin.html',
-                    title=self.title()+' - Administrador')
+        self.render('admin.html', title=self.title()+' - Administrador')
 
 
 class Application(tornado.web.Application):
     def __init__(self):
+
         handlers = [
             (r"/", MainHandler),
             (r"/admin", AdminHandler)
         ]
+
         settings = dict(
             blog_title=u"Casa dos projetos",
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -43,6 +43,7 @@ class Application(tornado.web.Application):
             default=80,
             autoreload=True,
         )
+
         tornado.web.Application.__init__(self, handlers, **settings)
 
 
@@ -52,7 +53,8 @@ def main():
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(port, ip)
-    print('Running ', 'http://'+ip+':'+str(port))
+    
+    print('Running at: ', 'http://' + ip + ':' + str(port))
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
