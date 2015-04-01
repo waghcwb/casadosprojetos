@@ -22,40 +22,40 @@ class MainHandler(configHandler):
 
 class AdminHandler(configHandler):
     def get(self):
-        self.render('admin.html', title=self.title()+' - Administrador')
+        self.render('admin.html', title=self.title() + ' - Administrador')
 
 
 class Application(tornado.web.Application):
     def __init__(self):
 
         handlers = [
-            (r"/", MainHandler),
-            (r"/admin", AdminHandler)
+            (r'/', MainHandler),
+            (r'/admin', AdminHandler)
         ]
 
         settings = dict(
-            blog_title=u"Casa dos projetos",
-            template_path=os.path.join(os.path.dirname(__file__), "templates"),
-            static_path=os.path.join(os.path.dirname(__file__), "static"),
-            xsrf_cookies=False,
-            cookie_secret=base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
-            debug=True,
-            default=80,
-            autoreload=True,
+            blog_title    = u'Casa dos projetos',
+            template_path = os.path.join(os.path.dirname(__file__), 'templates'),
+            static_path   = os.path.join(os.path.dirname(__file__), 'static'),
+            xsrf_cookies  = False,
+            cookie_secret = base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
+            debug         = True,
+            default       = 80,
+            autoreload    = True,
         )
 
         tornado.web.Application.__init__(self, handlers, **settings)
 
 
 def main():
-    ip = '127.0.0.1'
-    port = 8080
+    ip          = '127.0.0.1'
+    port        = 8080
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
-    http_server.listen(port, ip)
-    
-    print('Running at: ', 'http://' + ip + ':' + str(port))
+    http_server.listen(port, ip)    
     tornado.ioloop.IOLoop.instance().start()
 
-if __name__ == "__main__":
+    print('Running at: ', 'http://' + ip + ':' + str(port))
+
+if __name__ == '__main__':
     main()
