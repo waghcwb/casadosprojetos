@@ -22,8 +22,8 @@ class MainHandler(configHandler):
 class AdminHandler(configHandler):
     def get(self):
         self.render('admin.html', title=self.title() + ' - Administrador')
-        
-class maintenanceHandler(configHandler):
+
+class MaintenanceHandler(configHandler):
     def get(self):
         self.render('maintenance.html', title=self.title())
 
