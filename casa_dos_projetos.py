@@ -9,7 +9,6 @@ import uuid
 import base64
 import os
 
-
 class configHandler(tornado.web.RequestHandler):
     def title(self):
         return 'Casa dos projetos'
@@ -23,6 +22,10 @@ class MainHandler(configHandler):
 class AdminHandler(configHandler):
     def get(self):
         self.render('admin.html', title=self.title() + ' - Administrador')
+        
+class maintenanceHandler(configHandler):
+    def get(self):
+        self.render('maintenance.html', title=self.title())
 
 
 class Application(tornado.web.Application):
@@ -30,7 +33,8 @@ class Application(tornado.web.Application):
 
         handlers = [
             (r'/', MainHandler),
-            (r'/admin', AdminHandler)
+            (r'/admin', AdminHandler),
+            (r'/maintenance', maintenanceHandler)
         ]
 
         settings = dict(
