@@ -34,7 +34,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r'/', MainHandler),
             (r'/admin', AdminHandler),
-            (r'/maintenance', maintenanceHandler)
+            (r'/maintenance', MaintenanceHandler)
         ]
 
         settings = dict(
