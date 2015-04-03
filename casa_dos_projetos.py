@@ -22,7 +22,7 @@ class MainHandler(configHandler):
 
 class AdminHandler(configHandler):
     def get(self):
-        self.render('admin.html', title=self.title() + ' - Administrador')
+        self.render('admin.html', title=self.title() + ' - Administrador', subtitle=self.title() + ' - Painel de controle')
 
 
 class MaintenanceHandler(configHandler):
@@ -64,7 +64,7 @@ def main():
     port        = 8080
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
-    http_server.listen(port, ip)    
+    http_server.listen(port, ip)
     tornado.ioloop.IOLoop.instance().start()
 
     print('Running at: ', 'http://' + ip + ':' + str(port))

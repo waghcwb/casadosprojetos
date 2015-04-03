@@ -1,22 +1,35 @@
 {% include admin_head.html %}
 
 <header class="header">
-	<section class="logo container">
-		<h2><i class="fa fa-gear"></i> Lorem ipsum</h2>
+	<section class="logo container clearfix">
+		<div class="subtitle">
+            <h2><a href="#"><i class="fa fa-gear"></i> {{subtitle}}</a></h2>
+        </div>
+        <nav id="top-nav">
+            <ul id="top-options" class="clearfix">
+                <li>
+                    <a href="#">Nova postagem</a>
+                </li>
+            </ul>
+            <ul id="top-profile" class="clearfix">
+                <li>
+                    <a href="#">
+                        <img src="/static/img/avatar.jpg">
+                        <span>waghcwb</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
 	</section>
 </header>
 
-<main role="main" class="main-container">
-    <div class="main wrapper clearfix">
-
-        <article>
-            <section>
-                <h2>admin</h2>
-                <p>admin panel</p>
-            </section>
-        </article>
-
-    </div>
+<main role="main" class="main-container clearfix">
+    <section class="container">
+        <h2>Ok</h2>
+    </section>
 </main>
 
 {% include admin_footer.html %}
