@@ -1,9 +1,9 @@
 {% include admin_head.html %}
 
-<header class="header">
+<header class="header clearfix">
 	<section class="logo container clearfix">
 		<div class="subtitle">
-            <h2><a href="#"><i class="fa fa-gear"></i> {{subtitle}}</a></h2>
+            <h2 title="{{subtitle}}"><a href="#"><i class="fa fa-gear"></i> {{subtitle}}</a></h2>
         </div>
         <nav id="top-nav">
             <ul id="top-options" class="clearfix">
@@ -27,8 +27,73 @@
 </header>
 
 <main role="main" class="main-container clearfix">
-    <section class="container">
-        <h2>Ok</h2>
+    <header class="main-header container">
+        <h2 class="main-subtitle">Postagens</h2>
+    </header>
+    <section class="main-content container">
+        <section class="clearfix" id="posts">
+
+            <section class="row">
+
+                <div class="post">
+                    <header>
+                        <h3>Postagem muito louca</h3>
+                    </header>
+                    <main role="main">
+                        <span>E uma descrição mais louca ainda</span>
+                    </main>
+                    <footer>
+                        <time>10/02/2014</time>
+                        <a href="#">Editar</a>
+                    </footer>
+                </div>
+
+                <div class="post">
+                    <header>
+                        <h3>Postagem muito louca</h3>
+                    </header>
+                    <main role="main">
+                        <span>E uma descrição mais louca ainda</span>
+                    </main>
+                    <footer>
+                        <time>10/02/2014</time>
+                        <a href="#">Editar</a>
+                    </footer>
+                </div>
+            
+            </section>
+
+            <section class="row">
+
+                <div class="post">
+                    <header>
+                        <h3>Postagem muito louca</h3>
+                    </header>
+                    <main role="main">
+                        <span>E uma descrição mais louca ainda</span>
+                    </main>
+                    <footer>
+                        <time>10/02/2014</time>
+                        <a href="#">Editar</a>
+                    </footer>
+                </div>
+
+                <div class="post">
+                    <header>
+                        <h3>Postagem muito louca</h3>
+                    </header>
+                    <main role="main">
+                        <span>E uma descrição mais louca ainda</span>
+                    </main>
+                    <footer>
+                        <time>10/02/2014</time>
+                        <a href="#">Editar</a>
+                    </footer>
+                </div>
+            
+            </section>
+            
+        </section>
     </section>
 </main>
 

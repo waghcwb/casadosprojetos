@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 __author__ = 'joelson0007, waghcwb'
 
 import tornado.httpserver
@@ -22,7 +25,7 @@ class MainHandler(configHandler):
 
 class AdminHandler(configHandler):
     def get(self):
-        self.render('admin.html', title=self.title() + ' - Administrador', subtitle=self.title() + ' - Painel de controle')
+        self.render('admin.html', title=self.title() + ' - Painel de controle', subtitle='Painel de controle')
 
 
 class MaintenanceHandler(configHandler):
