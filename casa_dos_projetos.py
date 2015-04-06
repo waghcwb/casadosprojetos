@@ -70,15 +70,20 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers, **settings)
 
 
+color = {'header':'\033[95m', 'blue':'\033[94m', 'green':'\033[92m', 'warning':'\033[93m', 'fail':'\033[91m', 'bold':'\033[1m', 'end':'\033[0m'}
+
+
 def main():
+
     ip = '127.0.0.1'
     port = 8080
+
+    print(color['green'] + '[System started]: Running at: http://' + ip + ':' + str(port) + color['end'])
+
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(port, ip)
     tornado.ioloop.IOLoop.instance().start()
-
-    print('Running at: ', 'http://' + ip + ':' + str(port))
 
 if __name__ == '__main__':
     main()
