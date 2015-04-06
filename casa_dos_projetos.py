@@ -28,8 +28,7 @@ class MainHandler(configHandler):
 class AdminHandler(configHandler):
 
     def get(self):
-        self.render('admin.html', title=self.title() +
-                    ' - Painel de controle', subtitle='Painel de controle')
+        self.render('admin.html', title=self.title() + ' - Painel de controle', subtitle='Painel de controle')
 
 
 class MaintenanceHandler(configHandler):
@@ -60,8 +59,7 @@ class Application(tornado.web.Application):
             template_path=os.path.join(os.path.dirname(__file__), 'templates'),
             static_path=os.path.join(os.path.dirname(__file__), 'static'),
             xsrf_cookies=False,
-            cookie_secret=base64.b64encode(
-                uuid.uuid4().bytes + uuid.uuid4().bytes),
+            cookie_secret=base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
             debug=True,
             default=80,
             autoreload=True,
