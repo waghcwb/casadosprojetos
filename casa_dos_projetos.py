@@ -43,6 +43,12 @@ class PageNotFoundHandler(configHandler):
         self.render('404.html', title=self.title())
 
 
+class InstagramHandler(configHandler):
+
+    def get(self):
+        self.render('instagram.html', title='Unit testing :: Instagram')
+
+
 class Application(tornado.web.Application):
 
     def __init__(self):
@@ -51,7 +57,8 @@ class Application(tornado.web.Application):
             (r'/', MainHandler),
             (r'/admin', AdminHandler),
             (r'/maintenance', MaintenanceHandler),
-            (r'/page-not-found', PageNotFoundHandler)
+            (r'/page-not-found', PageNotFoundHandler),
+            (r'/instagram', InstagramHandler)
         ]
 
         settings = dict(
