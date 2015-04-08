@@ -2,14 +2,20 @@
 
     'use strict';
 
-    function request(url) {
+    function request(url, response_type) {
 
         if( !(this instanceof request) ) {
-            return new request(url);
+            return new request(url, response_type);
+        }
+
+        const self = this;
+        const xhr = function() {
+            return( ( !XMLHttpRequest ? self.die('Please, update your browser.') : new XMLHttpRequest() ) );
         }
 
         this.url = url;
-        this.xhr = new XMLHttpRequest();
+        this.xhr = xhr();
+        this.response_type = response_type || '';
 
         this.http_status = {
             100: 'Continue',
@@ -83,11 +89,12 @@
             this.xhr.onload = function() {
 
                 const status = self.http_status[this.status];
-
                 fn(this.response, status);
             }
 
             this.xhr.open('GET', this.url, true);
+            this.xhr.setRequestHeader('Content-Type', 'application/json');
+            this.xhr.responseType = this.response_type;
             this.xhr.send(null);
         }
 
@@ -97,8 +104,9 @@
     }
 
     request.fn = request.prototype = {
-        error: function() {
-            return 'todo: error function';
+        die: function(error) {
+            throw new Error(error);
+            return;
         }
     };
 
