@@ -6,10 +6,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // var data = JSON.parse(data);
         console.info( data );
-        console.info(this);
+        // console.info(this);
         // console.info( status );
 
     });
 
-    console.info(request.teste);
 });

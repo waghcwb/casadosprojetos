@@ -1,27 +1,22 @@
-;(function( global, undefined ) {
+;(function(global, undefined) {
+
     'use strict';
 
-var
-    kettu = function( selector ) {
-        return new kettu.fn.init( selector );
-    },
+    function kettu(params) {
 
-    breakpoints = {
-        'mobile': 320,
-        'mobile-md': 480,
-        'desktop-sm': 767,
-        'desktop-md': 979,
-        'desktop': 1200
-    },
+        if( !(this instanceof kettu) ) {
+            return new kettu(params);
+        }
 
-    document = window.document;
-
-    kettu.fn = kettu.prototype = {};
-
-    var init = kettu.fn.init = function( selector ) {
-        return window.kettu = window.$ = kettu;
+        this.params = params;
     }
 
-    init.prototype = kettu.fn;
+    kettu.fn = kettu.prototype = {
+        method: function() {
+            console.info('Wow!!');
+        }
+    };
+
+    window.kettu = kettu;
 
 })(typeof window !== 'undefined' ? window : this);

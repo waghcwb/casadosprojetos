@@ -10,7 +10,6 @@
 
         this.url = url;
         this.xhr = new XMLHttpRequest();
-        this.teste = 'document';
 
         this.http_status = {
             100: 'Continue',
